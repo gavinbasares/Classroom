@@ -1,1 +1,282 @@
-Classroom
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Classroom</title>
+<style>
+* { box-sizing:border-box; }
+
+:root {
+  --accent:#9b8cff;
+  --panel:#191a2b;
+  --text:#f7f6ff;
+}
+
+body {
+  margin:0;
+  min-height:100vh;
+  background:radial-gradient(ellipse at top,#29204c,#10111b 65%);
+  color:var(--text);
+  font-family:Arial,sans-serif;
+  transition:background .3s;
+}
+
+body.blue {
+  background:radial-gradient(ellipse at top,#183b60,#10111b 65%);
+  --accent:#65baff;
+}
+body.red {
+  background:radial-gradient(ellipse at top,#54242f,#10111b 65%);
+  --accent:#ff8194;
+}
+
+main {
+  max-width:1050px;
+  margin:auto;
+  padding:35px 20px 60px;
+}
+
+nav {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:65px;
+}
+
+.logo {
+  font-size:23px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+nav button {
+  background:var(--panel);
+  color:white;
+  border:1px solid #39364f;
+  border-radius:10px;
+  padding:10px 15px;
+  cursor:pointer;
+}
+
+.hero { text-align:center; }
+
+h1 {
+  font-size:clamp(48px,9vw,75px);
+  margin:0;
+  letter-spacing:-4px;
+}
+
+.subtitle {
+  color:#a6a4bc;
+  margin-top:12px;
+}
+
+#clock {
+  font-size:38px;
+  font-weight:bold;
+  margin-top:30px;
+}
+
+#date {
+  color:#aaa8bd;
+  margin-top:5px;
+}
+
+.search {
+  display:flex;
+  max-width:650px;
+  margin:38px auto 55px;
+  padding:8px;
+  background:#202033;
+  border:1px solid #39364f;
+  border-radius:16px;
+}
+
+.search input {
+  flex:1;
+  min-width:0;
+  padding:13px;
+  background:transparent;
+  color:white;
+  border:0;
+  outline:0;
+  font-size:16px;
+}
+
+.search button {
+  background:var(--accent);
+  color:#111;
+  border:0;
+  border-radius:10px;
+  padding:12px 20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.section {
+  margin-top:35px;
+}
+
+.section h2 {
+  font-size:18px;
+  margin-bottom:18px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:15px;
+}
+
+.card {
+  display:flex;
+  align-items:center;
+  gap:15px;
+  padding:20px;
+  background:var(--panel);
+  border:1px solid #34334b;
+  border-radius:16px;
+  color:white;
+  text-decoration:none;
+  transition:.2s;
+}
+
+.card:hover {
+  transform:translateY(-4px);
+  border-color:var(--accent);
+  background:#25243b;
+}
+
+.icon {
+  font-size:32px;
+}
+
+.card h3 {
+  margin:0 0 5px;
+  font-size:16px;
+}
+
+.card p {
+  margin:0;
+  color:#a6a4bc;
+  font-size:13px;
+}
+
+footer {
+  text-align:center;
+  color:#77758e;
+  margin-top:65px;
+  font-size:13px;
+}
+</style>
+</head>
+
+<body>
+<main>
+
+<nav>
+  <div class="logo">CLASSROOM.</div>
+  <button onclick="changeTheme()">🎨 Change Theme</button>
+</nav>
+
+<header class="hero">
+  <h1>Classroom</h1>
+  <p class="subtitle">Everything you need, all in one place.</p>
+  <div id="clock">00:00:00</div>
+  <div id="date"></div>
+</header>
+
+<form class="search" action="https://www.google.com/search" method="GET">
+  <input name="q" placeholder="Search Google..." required>
+  <button type="submit">Search</button>
+</form>
+
+<section class="section">
+<h2>🌐 Websites</h2>
+<div class="grid">
+
+<a class="card" href="https://www.google.com" target="_blank">
+  <div class="icon">🔎</div>
+  <div><h3>Google</h3><p>Search the internet</p></div>
+</a>
+
+<a class="card" href="https://www.youtube.com" target="_blank">
+  <div class="icon">▶️</div>
+  <div><h3>YouTube</h3><p>Videos and entertainment</p></div>
+</a>
+
+<a class="card" href="https://open.spotify.com" target="_blank">
+  <div class="icon">🎵</div>
+  <div><h3>Spotify</h3><p>Music and playlists</p></div>
+</a>
+
+<a class="card" href="https://www.wikipedia.org" target="_blank">
+  <div class="icon">📚</div>
+  <div><h3>Wikipedia</h3><p>Explore information</p></div>
+</a>
+
+</div>
+</section>
+
+<section class="section">
+<h2>🎮 Gaming</h2>
+<div class="grid">
+
+<a class="card" href="https://www.xbox.com/play" target="_blank">
+  <div class="icon">🎮</div>
+  <div><h3>Xbox Cloud Gaming</h3><p>Play Xbox games</p></div>
+</a>
+
+<a class="card" href="https://www.minecraft.net" target="_blank">
+  <div class="icon">⛏️</div>
+  <div><h3>Minecraft</h3><p>Explore Minecraft</p></div>
+</a>
+
+<a class="card" href="https://store.steampowered.com" target="_blank">
+  <div class="icon">🕹️</div>
+  <div><h3>Steam</h3><p>Explore PC games</p></div>
+</a>
+
+</div>
+</section>
+
+<footer>
+  CLASSROOM © 2026 · Made for your browser
+</footer>
+
+</main>
+
+<script>
+function updateClock() {
+  const now = new Date();
+
+  document.getElementById("clock").textContent =
+    now.toLocaleTimeString();
+
+  document.getElementById("date").textContent =
+    now.toLocaleDateString(undefined, {
+      weekday:"long",
+      month:"long",
+      day:"numeric",
+      year:"numeric"
+    });
+}
+
+updateClock();
+setInterval(updateClock,1000);
+
+let themes = ["purple","blue","red"];
+let currentTheme = 0;
+
+function changeTheme() {
+  currentTheme = (currentTheme + 1) % themes.length;
+  document.body.className = themes[currentTheme] === "purple"
+    ? ""
+    : themes[currentTheme];
+}
+</script>
+
+</body>
+</html>
